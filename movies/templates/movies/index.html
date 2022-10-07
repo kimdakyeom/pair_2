@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-index
+  index
+  <a href="{% url 'movies:create' %}">
+    리뷰 추가
+  </a>
+  {% for review in reviews %}
+    {{ review.title }}
+  {% endfor %}
 {% endblock %}
