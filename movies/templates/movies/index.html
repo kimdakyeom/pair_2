@@ -142,7 +142,7 @@
                 {% for q in search_movie %}
                   <tr>
                     <th scope="row">
-                      {{q.title}}
+                      <a class="text-decoration-none text-black" href="{% url 'movies:detail' q.pk %}">{{ q.title }}</a>
                     </th>
                     <td>
                       {{q.movie_name}}
@@ -236,7 +236,7 @@
             {%for i in all_genre%}
               <tr>
                 <th scope="row">
-                  {{i.title}}</th>
+                  <a class="text-decoration-none text-black" href="{% url 'movies:detail' i.pk %}">{{ i.title }}</a></th>
                 <td>
                   {{ i.movie_name}}
                 </td>

@@ -5,7 +5,7 @@ from django.core.paginator import Paginator
 
 
 def index(request):
-    reviews = Review.objects.all()
+    reviews = Review.objects.order_by('-pk')
     page = request.GET.get('page')
     paginator = Paginator(reviews, 10)
     page_obj = paginator.get_page(page)
