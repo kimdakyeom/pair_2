@@ -2,17 +2,17 @@
 
 {% block content %}
 
-<h1>상세보기페이지</h1>
+  <h1>상세보기페이지</h1>
 
-{{review_get.title}}
-{{review_get.content}}
+  {{review_get.title}}<br>
+  {{review_get.content}}<br>
 
+  <a href="{% url 'movies:index' %}">되돌아기</a>
+  <br>
 
-
-<a href="{% url 'movies:index' %}">되돌아기</a>
-
-<a href="{% url 'movies:update' review_get.pk %}">수정버튼</a>
-<a href="{% url 'movies:delete' review_get.pk %}">삭제버튼</a>
-
+  <a href="{% url 'movies:update' review_get.pk %}">수정버튼</a>
+  <br>
+  <a href="{% url 'movies:delete' review_get.pk %}">삭제버튼</a>
+  <br>
 
 {% endblock %}

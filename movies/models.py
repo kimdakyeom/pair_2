@@ -27,3 +27,4 @@ class Review(models.Model):
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
     genre = models.CharField(max_length=5, choices=genre_table)
+    

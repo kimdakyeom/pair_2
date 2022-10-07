@@ -5,6 +5,7 @@ from .models import Review
 
 def index(request):
     reviews = Review.objects.all()
+    
     context = {
         "reviews": reviews,
     }
@@ -72,3 +73,4 @@ def search(request):
         }
 
     return render(request, "movies/index.html", context)
+

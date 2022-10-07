@@ -1,22 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
-
-{%if reviews%}}
 index
-<a href="{% url 'movies:create' %}">
-  리뷰 추가
-</a>
-{% for review in reviews %}
-<a href="{% url 'movies:detail' review.pk %}">{{ review.title }} </a>
-{% endfor %}
-{%endif%}
+<br>
+<hr>
+  
+  {%if reviews%}  
+    <a href="{% url 'movies:create' %}">
+      리뷰 추가
+    </a><br>
+    {% for review in reviews %}
 
+      <a href="{% url 'movies:detail' review.pk %}">{{ review.title }}</a>
 
-{% if search_movie %}
-{% for q in search_movie %}
-{{q.title}}
+      {% comment %} <img src="{% static 'movies/review.movie_name' %}" alt=""> {% endcomment %}
+      <img src="{% static 'movies/{{review.movie_name}}.jpg' %}" alt="">
+      <br>
+    {% endfor %}
+    {%endif%}
 
-{% endfor %}
-{% endif %}
-{% endblock %}
+    {% if search_movie %}
+      {% for q in search_movie %}
+        {{q.title}}
+
+      {% endfor %}
+    {% endif %}
+  {% endblock %}
