@@ -57,7 +57,7 @@ def update(request, pk):
         "review_form": review_form,
         "update_movie": update_movie,
     }
-    return render(request, "movies:create.html", context)
+    return render(request, "movies/create.html", context)
 
 
 def delete(request, pk):

@@ -6,19 +6,20 @@ class ReviewForm(ModelForm):
     class Meta:
         model = Review
         fields = "__all__"
+        labels = {'title': '제목', 'content': '내용', 'movie_name': '영화 제목', 'grade': '별점', 'genre': '장르'}
         widgets = {
             'title' : TextInput(attrs={
                 'class':'form-control',
-                'placeholder':'Title',
+                'placeholder':'글 제목',
             }),
             'content' : TextInput(attrs={
                 'class':'form-control ',
-                'placeholder':'content',
+                'placeholder':'내용',
                 'style' : 'height:300px;'
             }),
             'movie_name' : TextInput(attrs={
                 'class':'form-control',
-                'placeholder':'movie_name)'
+                'placeholder':'영화 제목'
             }),
         }
         

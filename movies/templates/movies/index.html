@@ -2,24 +2,40 @@
 {% load static %}
 
 {% block content %}
-index
-<br>
-<hr>
-  
-  {%if reviews%}  
-    <a href="{% url 'movies:create' %}">
-      리뷰 추가
-    </a><br>
-    {% for review in reviews %}
+  <div class="container my-5 align-middle text-center" style="width: 600px;">
+    {%if reviews%}  
+      <a href="{% url 'movies:create' %}" class="btn btn-dark">
+        리뷰 추가
+      </a><br>
+      {% for review in reviews %}
 
-      <a href="{% url 'movies:detail' review.pk %}">{{ review.title }}</a>
-
-      {% comment %} <img src="{% static 'movies/review.movie_name' %}" alt=""> {% endcomment %}
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">영화 제목</th>
+            <th scope="col">글 제목</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><a href="{% url 'movies:detail' review.pk %}">{{ review.movie_name }}</a>
+            </th>
+            <td><a href="{% url 'movies:detail' review.pk %}">{{ review.title }}</a>
+            </td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+        </tbody>
+      </table>
+        
+        {% comment %} <img src="{% static 'movies/review.movie_name' %}" alt=""> {% endcomment %}
       
-      <img src="{{ review.movie_name }}" alt="">
+        <img src="{{ review.movie_name }}" alt="">
       
-      <br>
-    {% endfor %}
+        <br>
+      {% endfor %}
     {%endif%}
 
     {% if search_movie %}
@@ -28,4 +44,5 @@ index
 
       {% endfor %}
     {% endif %}
+  </div>
   {% endblock %}
