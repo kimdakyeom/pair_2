@@ -17,9 +17,5 @@ class ReviewForm(ModelForm):
                 'placeholder':'내용',
                 'style' : 'height:300px;'
             }),
-            'movie_name' : TextInput(attrs={
-                'class':'form-control',
-                'placeholder':'영화 제목'
-            }),
         }
         

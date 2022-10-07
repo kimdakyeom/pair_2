@@ -11,4 +11,7 @@ urlpatterns = [
     path("<int:pk>/delete", views.delete, name="delete"),
     path("search/", views.search, name="search"),
     path("<int:pk>/genre", views.genres, name="genres"),
+    path("movie/", views.movie, name="movie"),
+    path("make/", views.make, name="make"),
+    path("<int:pk>/movie_detail", views.movie_detail, name="movie_detail"),
 ]
