@@ -6,11 +6,12 @@ from django.core.paginator import Paginator
 
 def index(request):
     reviews = Review.objects.all()
-    page = request.GET.get('page',1)
+    page = request.GET.get('page')
+    paginator = Paginator(reviews, 10)
+    page_obj = paginator.get_page(page)
     context = {
         "reviews": reviews,
-
-        
+        "page_obj": page_obj,
     }
     return render(request, "movies/index.html", context)
 
@@ -126,6 +127,7 @@ def genres(request, pk):
 
     context = {
         "all_genre": all_genre,
+        "result_genre":result_genre
     }
 
     return render(request, "movies/index.html", context)

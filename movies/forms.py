@@ -1,4 +1,5 @@
 from django.forms import ModelForm, TextInput, NumberInput
+from django import forms
 from .models import Review
 
 
@@ -16,6 +17,15 @@ class ReviewForm(ModelForm):
                 'class':'form-control ',
                 'placeholder':'내용',
                 'style' : 'height:300px;'
+            }),
+            'movie_name' : forms.Select(attrs={
+                'class':'form-select',
+            }),
+            'grade' : forms.Select(attrs={
+                'class':'form-select',
+            }),
+            'genre' : forms.Select(attrs={
+                'class':'form-select',
             }),
         }
         
