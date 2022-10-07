@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container my-5 align-middle text-center border bg-white" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
-  <div class="m-5 mb-5">
+  <div class="container my-5 align-middle text-center border bg-white" style="width: 600px; box-shadow: 4px 12px 30px 6px rgb(0 0 0 / 20%); border-radius: 15px; ">
+    <div class="m-5 mb-5">
 
-    <h1>{{review_get.title}}</h1>
-    <p>{{review_get.content}}</p>
+      <h1>{{review_get.title}}</h1>
+      <p>{{review_get.content}}</p>
 
-    <a href="{% url 'movies:index' %}">되돌아기</a>
-    <br>
+      <a href="{% url 'movies:index' %}">되돌아기</a>
+      <br>
 
-    <a href="{% url 'movies:update' review_get.pk %}">수정버튼</a>
-    <br>
-    <a href="{% url 'movies:delete' review_get.pk %}">삭제버튼</a>
-    <br>
+      <a href="{% url 'movies:update' review_get.pk %}">수정버튼</a>
+      <br>
+      <a href="{% url 'movies:delete' review_get.pk %}">삭제버튼</a>
+      <br>
+    </div>
   </div>
-</div>
 {% endblock %}
