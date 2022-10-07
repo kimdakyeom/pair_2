@@ -78,3 +78,22 @@ def search(request):
 
     return render(request, "movies/index.html", context)
 
+def genres(request, pk):
+
+    genres_table = {
+        1: "액션",
+        2: "스릴러",
+        3: "코미디",
+        4: "로맨스",
+        5: "SF",
+        6: "드라마",
+        7: "애니메이션",
+    }
+    result_genre = genres_table.get(pk)
+    all_genre = Review.objects.filter(genre=result_genre)
+
+    context = {
+        "all_genre": all_genre,
+    }
+
+    return render(request, "movies/index.html", context)
