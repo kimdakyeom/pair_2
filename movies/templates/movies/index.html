@@ -15,7 +15,9 @@ index
       <a href="{% url 'movies:detail' review.pk %}">{{ review.title }}</a>
 
       {% comment %} <img src="{% static 'movies/review.movie_name' %}" alt=""> {% endcomment %}
-      <img src="{% static 'movies/{{review.movie_name}}.jpg' %}" alt="">
+      
+      <img src="{{ {{ review.movie_name }} }}" alt="">
+      
       <br>
     {% endfor %}
     {%endif%}
