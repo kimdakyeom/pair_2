@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
+{%if reviews%}}
 index
 <a href="{% url 'movies:create' %}">
   리뷰 추가
@@ -8,4 +10,13 @@ index
 {% for review in reviews %}
 <a href="{% url 'movies:detail' review.pk %}">{{ review.title }} </a>
 {% endfor %}
+{%endif%}
+
+
+{% if search_movie %}
+{% for q in search_movie %}
+{{q.title}}
+
+{% endfor %}
+{% endif %}
 {% endblock %}

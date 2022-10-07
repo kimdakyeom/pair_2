@@ -12,7 +12,7 @@ def index(request):
 
 
 def create(request):
-    
+
     if request.method == "POST":
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
@@ -63,13 +63,12 @@ def delete(request, pk):
 
 def search(request):
     all_movie = Review.objects.all()
-    search_movie = request.GET.get("search","")
+    search_movie = request.GET.get("search", "")
     if search_movie:
-        all_movie.filter( title__icontains = search_movie )
+        return_movie = all_movie.filter(title__icontains=search_movie)
 
-        context={
-            'search_movie': search_movie,
+        context = {
+            "search_movie": return_movie,
         }
 
-    return render(request ,'movies:index',context)
-
+    return render(request, "movies/index.html", context)
