@@ -5,9 +5,13 @@ from .models import Review
 
 def index(request):
     reviews = Review.objects.all()
-    
+    movie_img = {
+        '탑건':"{% static 'movies/탑건.jpg' %}",
+    }
     context = {
         "reviews": reviews,
+        '탑건':"{% static 'movies/탑건.jpg' %}",
+        
     }
     return render(request, "movies/index.html", context)
 
