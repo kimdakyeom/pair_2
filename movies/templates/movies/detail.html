@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>상세보기페이지</h1>
+
+{{review_get.title}}
+{{review_get.content}}
+
+
+
+<a href="{% url 'movies:index' %}">되돌아기</a>
+
+<a href="{% url 'movies:update' review_get.pk %}">수정버튼</a>
+<a href="{% url 'movies:delete' review_get.pk %}">삭제버튼</a>
+
+
+{% endblock %}

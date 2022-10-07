@@ -1,10 +1,28 @@
 {% extends 'base.html' %}
 {% block content %}
 
-  <form action="" method="POST">
-    {% csrf_token %}
-    {{ review_form.as_p }}
-    <input type="submit" value="생성">
-  </form>
+{%if request.resolver_match.url_name == 'create'%}
+<h1>새 글 만들기</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ review_form.as_p }}
+  <input type="submit" value="생성">
+</form>
+
+{%endif%}
+
+
+{%if request.resolver_match.url_name == 'update'%}
+<h1>글 수정하기</h1>
+<form action="" method="POST">
+  {% csrf_token %}
+  {{ review_form.as_p }}
+  <input type="submit" value="수정">
+</form>
+
+{%endif%}
+
+
+
 
 {% endblock content %}
