@@ -12,6 +12,7 @@ def index(request):
 
 
 def create(request):
+    
     if request.method == "POST":
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
@@ -51,10 +52,24 @@ def update(request, pk):
         "review_form": review_form,
         "update_movie": update_movie,
     }
-    return render(request, "movies/create.html", context)
+    return render(request, "movies:create.html", context)
 
 
 def delete(request, pk):
     Review.objects.get(pk=pk).delete()
 
     return redirect("movies:index")
+
+
+def search(request):
+    all_movie = Review.objects.all()
+    search_movie = request.GET.get("search","")
+    if search_movie:
+        all_movie.filter( title__icontains = search_movie )
+
+        context={
+            'search_movie': search_movie,
+        }
+
+    return render(request ,'movies:index',context)
+
